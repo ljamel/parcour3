@@ -5,14 +5,11 @@
     height: 100%;
 }
 
-
-/* Optional: Makes the sample page fill the window. */
-
 html,
 body {
     height: 100%;
-    margin: 0;
     padding: 0;
+    background-image: url("../images/pattern.png");
 }
 
 #home1 {
@@ -182,6 +179,7 @@ br {
 
 #timer {
     background-color: darkturquoise;
+    font-size: 25px;
 }
 
 @media screen and (max-width: 640px) {
