@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+
+</head>
+
+
+<body onload="Affiche.Aff();">
+
+    <title>HTML5 multi-touch</title>
+
+    <br />
+    <p id=timer>signer pour validé la résérvation</p>
+    <div id="mob"></div>
+
+
+    <script type='text/javascript'>
+        function Lettres() {
+            this.text = "";
+            this.possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+
+
+            this.Aff = function() {
+                this.text += this.possible.charAt(Math.floor(Math.random() * this.possible.length));
+                console.log(this.text);
+
+            };
+            for (i = 0; i < 5; i++) {
+                this.Aff();
+            }
+        }
+
+        Affiche = new Lettres();
+
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</body>
+
+</html>

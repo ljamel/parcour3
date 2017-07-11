@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Vélibe. Location de vélos</title>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <p id="mob">
+        <canvas id="mycanvas">
+      Canvas element not supported.
+    </canvas> Signer ci-dessus pour valider la résérvation
+        <a href=#footer><button onclick='Minuteur.finReserv();Minuteur.decompte();' class='louer'>Cliquez ici</button ></a>
+    </p>
+    <div id="home">
+        <div class="slideshow">
+            <div class="mySlides">
+                <div class="slide-image"><br />
+
+                </div>
+            </div>
+            <div class="mySlides">
+                <div class="slide-image2"><br />
+                    <div class="texte1"><span class="espacement2"> Selectionner un vélib et cliquez dessus.<br /></div>
+                </div>
+            </div>
+            <div class="mySlides">
+                <div class="slide-image3"><br />
+                    <div class="texte1"><span class="espacement2"> Vous verrez une petit fenêtre vous indiquand l'adresse<br /> et le nombre de vélibs disponnible  </span><br /></span><br /></div>
+                </div>
+            </div>
+            <div class="mySlides">
+                <div class="slide-image4"><br />
+                    <div class="texte1"><span class="espacement2">Cliquez sur le bouton résérvez une fenêtre de signature apparaitra.  <br /></span><br />Signer et valider.</div>
+                </div>
+            </div>
+            <div class="mySlides">
+                <div class="slide-image5"><br />
+                    <div class="texte1"><span class="espacement2"> Vous verrez en dessous de la carte le vélo résérver et le nombres de minutes restant. <br /></span><br /></div>
+                </div>
+            </div>
+            <div class="all"><span class="expand"></span></div>
+            <!--Barre de chargement-->
+        </div>
+        <div class="bouton12">
+            <a class="w3-btn-floating" onclick="Slidefor.plusDivs(-1)">&#10094;</a>
+            <a class="w3-btn-floating2" onclick="Slidefor.plusDivs(1)">&#10095;</a>
+        </div>
+    </div>
+
+    <h1>Résérver un vélo depuis la carte</h1>
+    <div id="reservation"></div>
+    <div id="map"></div>
+    <div id="timer"></div><br />
+    <div id="footer"></div>
+
+    <script src="../js/ajax.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="../js/signatureMobile.js"></script>
+    <script src="../js/slide.js"></script>
+    <script src="../js/reservation.js"></script>
+    <script src="../js/coordonnees.js"></script>
+    <script src="../js/minuteur.js"></script>
+    <script src="../js/markerperso.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBGmV-zl2q_1T01QCjt0C1X2ZYve-LEqsA&callback=initMap"></script>
+
+</body>
+
+</html>
