@@ -7,7 +7,6 @@ function Reserver() {
     // Initilisation et réinitialisation des minutes, seconde et nom de la station en cas de nouvelles résérvations
     this.finReserv = function () {
         $("#reservation").fadeIn().html("La réservation a été effectuée");
-        $("#mob").fadeIn().html("La réservation a été effectuée");
     };
 
 
@@ -23,7 +22,8 @@ function Reserver() {
                 this.minutes--;
                 console.log('sec' + this.sec);
             }
-            document.getElementById('timer').innerHTML = "1 vélo résérver à la station " + this.nameStation + " pour " + this.minutes + " minutes " + this.sec;
+            document.getElementById('timer').innerHTML = "1 vélo résérver à la station " + this.nameStation + " pour <strong> " + this.minutes + " Minutes " + this.sec + " Secondes</strong> " + "<i class='fa fa-clock-o' aria-hidden='true'></i>";
+
 
             var interv = setTimeout(function () {
                 this.decompte();
@@ -44,4 +44,4 @@ function Reserver() {
 }
 
 // donner une valeurs a mes objets
-Minuteur = new Reserver();
+var minuteur = new Reserver();

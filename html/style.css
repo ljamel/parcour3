@@ -7,9 +7,10 @@
 
 html,
 body {
-    height: 100%;
+    height: 90%;
     padding: 0;
-    background-image: url("../images/pattern.png");
+    background-color: #f0f0f0;
+	font-family: 'Belgrano', serif;
 }
 
 #home1 {
@@ -18,7 +19,7 @@ body {
 }
 
 .slide-image {
-    background-image: url("../images/CaptureSlide1.PNG");
+    background-image: url("../images/photo-1.jpg");
     background-size: cover;
     height: 300px;
     animation: fade 30s infinite;
@@ -57,9 +58,7 @@ body {
     -webkit-animation: fade2 30s infinite;
 }
 
-br {
-    margin: 2px;
-}
+
 
 .espacement2 {
     font-size: 34px;
@@ -140,7 +139,15 @@ br {
     position: relative;
     bottom: 120px;
 }
-
+button {
+	padding:6px 0 6px 0;
+	font:bold 13px Arial;
+	background:#478bf9;
+	color:#fff;
+	border-radius:7px;
+	width:100px;
+	border:none;
+}
 #map {
     width: 100%;
 }
@@ -159,12 +166,12 @@ br {
 }
 
 #reservation {
-    border-color: black;
-    border-radius: 6%;
+    border: 1px solid #b9b9b9;
+    border-radius: 7px;
     background-color: #e6fffb;
     float: right;
     width: 270px;
-    padding: 5px;
+    padding: 9px;
     display: none;
 }
 
@@ -178,8 +185,12 @@ br {
 }
 
 #timer {
-    background-color: darkturquoise;
+    background-color: #e6fffb;
     font-size: 25px;
+	text-align:center;
+	padding:5px;
+	border-radius:7px;
+	border: 1px solid #808080;
 }
 
 @media screen and (max-width: 640px) {

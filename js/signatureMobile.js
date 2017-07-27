@@ -1,33 +1,19 @@
-// Creer les objets qui seron appeller plus tard
-function reserver(myCanvas, signaturePath) {
-    this.myCanvas = myCanvas;
-    this.signaturePath = signaturePath;
-
-}
-var canvas = new reserver(document.getElementById('mycanvas'), document.getElementById('mycanvas').getContext("2d"));
-
-var lastPt = new Object();
-
-var colours = ['blue', 'green', 'red', 'yellow', 'black'];
-
-Mobs = {
-
+var Mobs = {
+	lastPt: [],
     draw: function (e) {
         e.preventDefault();
-
         //Iterate over all touches
         for (var i = 0; i < e.touches.length; i++) {
             var id = e.touches[i].identifier;
-            if (lastPt[id]) {
-                canvas.signaturePath.beginPath();
-                canvas.signaturePath.moveTo(lastPt[id].x, lastPt[id].y);
-                canvas.signaturePath.lineTo(e.touches[i].pageX, e.touches[i].pageY);
-                canvas.signaturePath.strokeStyle = colours[id];
-                canvas.signaturePath.stroke();
-
+            if (Mobs.lastPt[id]) {
+                document.getElementById('mycanvas').getContext("2d").beginPath();
+                document.getElementById('mycanvas').getContext("2d").moveTo(Mobs.lastPt[id].x, Mobs.lastPt[id].y);
+                document.getElementById('mycanvas').getContext("2d").lineTo(e.touches[i].pageX, e.touches[i].pageY);
+                document.getElementById('mycanvas').getContext("2d").strokeStyle = 'blue';
+                document.getElementById('mycanvas').getContext("2d").stroke();
             }
             // Store last point
-            lastPt[id] = {
+            Mobs.lastPt[id] = {
                 x: e.touches[i].pageX,
                 y: e.touches[i].pageY
             };
@@ -39,12 +25,11 @@ Mobs = {
         for (var i = 0; i < e.changedTouches.length; i++) {
             var id = e.changedTouches[i].identifier;
             // Terminate this touch
-            delete lastPt[id];
+            delete Mobs.lastPt[id];
         }
     }
 
 }
-
-
-canvas.myCanvas.addEventListener("touchmove", Mobs.draw, false);
-canvas.myCanvas.addEventListener("touchend", Mobs.end, false);
+// Evenement au toucher
+document.getElementById('mycanvas').addEventListener("touchmove", Mobs.draw, false);
+document.getElementById('mycanvas').addEventListener("touchend", Mobs.end, false);

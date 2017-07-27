@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <title>Vélibe. Location de vélos</title>
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-
+	<link href="https://fonts.googleapis.com/css?family=Belgrano" rel="stylesheet"> 
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -14,34 +14,34 @@
     <p id="mob">
         <canvas id="mycanvas">
       Canvas element not supported.
-    </canvas> Signer ci-dessus pour valider la résérvation
-        <a href=#footer><button onclick='Minuteur.finReserv();Minuteur.decompte();' class='louer'>Cliquez ici</button ></a>
+    </canvas> Signez ci-dessus pour valider la réservation
+        <a href=#footer><button onclick='minuteur.finReserv();minuteur.decompte();' class='louer'>Cliquez ici</button ></a>
     </p>
     <div id="home">
         <div class="slideshow">
             <div class="mySlides">
                 <div class="slide-image">
-                    <div class="texte1"><span class="espacement2">Cliquez sur un regroupement de marqueurs.  <br /></span><br /></div>
+                    <div class="texte1"><span class="espacement2">Bienvenue sur l'application vélib<br />Cliquez sur un regroupement de marqueurs.  <br /></span><br /></div>
                 </div>
             </div>
             <div class="mySlides">
                 <div class="slide-image2">
-                    <div class="texte1"><span class="espacement2"> Selectionner un vélib et cliquez dessus.<br /></div>
+                    <div class="texte1"><span class="espacement2"> Sélectionnez un vélib et cliquez dessus.<br /></div>
                 </div>
             </div>
             <div class="mySlides">
                 <div class="slide-image3">
-                    <div class="texte1"><span class="espacement2"> Vous verrez une petit fenêtre vous indiquand l'adresse<br /> et le nombre de vélibs disponnible  </span><br /></span><br /></div>
+                    <div class="texte1"><span class="espacement2"> Vous verrez une petite fenêtre vous indiquant l'adresse<br /> et le nombre de vélibs disponibles  </span><br /></span><br /></div>
                 </div>
             </div>
             <div class="mySlides">
                 <div class="slide-image4">
-                    <div class="texte1"><span class="espacement2">Cliquez sur le bouton résérvez une fenêtre de signature apparaitra.  <br /></span><br />Signer et valider.</div>
+                    <div class="texte1"><span class="espacement2">Cliquez sur le bouton "réservez", une fenêtre de signature apparaitra.  <br /></span><br />Signer et valider.</div>
                 </div>
             </div>
             <div class="mySlides">
                 <div class="slide-image5">
-                    <div class="texte1"><span class="espacement2"> Vous verrez en dessous de la carte le vélo résérver et le nombres de minutes restant. <br /></span><br /></div>
+                    <div class="texte1"><span class="espacement2"> Vous verrez en dessous de la carte le vélo réservé et le nombre de minutes restant. <br /></span><br /></div>
                 </div>
             </div>
             <div class="all"><span class="expand"></span></div>
@@ -53,7 +53,7 @@
         </div>
     </div>
 
-    <h1>Résérver un vélo depuis la carte</h1>
+    <h1>Réservez un vélo depuis la carte</h1>
     <div id="reservation"></div>
     <div id="map"></div>
     <div id="timer"></div><br />
@@ -63,7 +63,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="../js/signatureMobile.js"></script>
     <script src="../js/slide.js"></script>
-    <script src="../js/reservation.js"></script>
+    <script src="../js/signature.js"></script>
     <script src="../js/coordonnees.js"></script>
     <script src="../js/minuteur.js"></script>
     <script src="../js/markerperso.js"></script>

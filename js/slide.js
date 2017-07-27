@@ -1,9 +1,8 @@
-//Méthodes PS: ma méthode préférer
-Slidefor = {
+//Méthodes PS: ma méthode préférer --- Objet literal ---
+var Slidefor = {
     myIndex: 0,
     x: document.getElementsByClassName("mySlides"),
     slideIndex: 1,
-
 
     slidefor: function () {
         for (i = 0; i < Slidefor.x.length; i++) {
@@ -11,7 +10,6 @@ Slidefor = {
         }
         Slidefor.x[Slidefor.myIndex - 1].style.display = "block";
     },
-
 
     // function des cursers
     showDivs: function (n) {
@@ -22,7 +20,6 @@ Slidefor = {
         Slidefor.slidefor();
     },
 
-
     // Affiche des informations sur un événement clavier
     // Déplacement des images avec la touche directionnelle
     infosClavier: function (m) {
@@ -31,6 +28,7 @@ Slidefor = {
             Slidefor.myIndex++;
             if (Slidefor.myIndex > Slidefor.x.length) {
                 Slidefor.myIndex = 1;
+                console.log(m.keyCode + "ok");
             }
             Slidefor.slidefor();
         }
@@ -45,16 +43,13 @@ Slidefor = {
         }
     },
 
-
     // Incremente la variable slideIndex pour passer a l'image suivante
     plusDivs: function (n) {
         Slidefor.showDivs(Slidefor.slideIndex += n);
-
     }
-
 };
 
-
+// Active le slide pour que la première image apparaisse
 Slidefor.showDivs(Slidefor.slideIndex);
 
 // Gestion de l'appui et du relâchement d'une touche du clavier
