@@ -27,7 +27,7 @@ function Signature() {
         } else {
             // ordinateur
             // affiche une fenête pour signé
-            $("#reservation").fadeIn().html("Signer ci-dessous pour finaliser la résérvation<br />" + "<br /><a href=#footer><button onclick='minuteur.finReserv();minuteur.decompte();' class='louer'>Cliquez ici</button ></a> <canvas id=myCanvas width=270 height=100 style='border:1px solid #000000;  background-color:#ffffdd;'>" + "</canvas >");
+            $("#reservation").fadeIn().html("Signer ci-dessous pour finaliser la résérvation<br />" + "<br /><a href=#footer><button onclick='minuteur.finReserv();minuteur.decompte();' class='louer'>Cliquez ici</button ></a> <canvas id=myCanvas >" + "</canvas >");
         }
         // fonction appeller au format ordinateur pour éviter les conflits
         if (window.matchMedia("(min-width: 700px)").matches) {

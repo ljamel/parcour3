@@ -152,12 +152,21 @@ button {
     width: 100%;
 }
 
+/* fenêtre de signature pour mobile */
 #mycanvas {
     display: none;
     border-style: dotted;
     border-color: black;
     width: 95%;
     height: 250px;
+}
+
+/* fenêtre de signature pour ordinateur */
+#myCanvas {
+	border-radius:7px;
+	width:100%;
+	border:1px solid #000000;
+	background-color:#ffffdd;
 }
 
 #mob {
