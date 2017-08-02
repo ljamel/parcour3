@@ -6,21 +6,20 @@ function Reserver() {
 	// Initilisation et réinitialisation des minutes, seconde et nom de la station en cas de nouvelles résérvations
 	this.finReserv = function () {
 		$("#reservation").fadeIn().html("La réservation a été effectuée");
+		
+		// remplacement de l'encien nom de station par le nouveau
+		sessionStorage.newNameStation = sessionStorage.nameStation;
 	};
 
-	// remplacement de l'encien nom de station par le nouveau
-	sessionStorage.newNameStation = sessionStorage.nameStation;
 
 	// Minuteur
 	this.decompte = function () {
-		console.log(this.sec);
 
 		if (this.minutes >= 0 && this.sec >= 0) {
 			this.sec--;
 			if (this.sec === 0 && this.minutes > 0) {
 				this.sec = 59;
 				this.minutes--;
-				console.log('sec' + this.sec);
 			}
 
 			document.getElementById('timer').innerHTML = "1 vélo résérver à la station " + sessionStorage.newNameStation + " pour <strong> " + this.minutes + " Minutes " + this.sec + " Secondes</strong> " + "<i class='fa fa-clock-o' aria-hidden='true'></i>";
