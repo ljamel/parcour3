@@ -84,12 +84,12 @@
 
  			});
 
- 					// position pour groupe de clusters
- 					locations.push({
- 						lat: object.position.lat,
- 						lng: object.position.lng,
- 					});
-			
+ 			// position pour groupe de clusters
+ 			locations.push({
+ 				lat: object.position.lat,
+ 				lng: object.position.lng,
+ 			});
+
 
  		});
 
@@ -109,7 +109,9 @@
 
  	});
 
-
+ 	if (localStorage.newNameStation != '') {
+ 		minuteur.decompte();
+ 	}
  }
 
  var locations = []
