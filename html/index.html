@@ -2,72 +2,81 @@
 <html>
 
 <head>
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-    <meta charset="utf-8">
-    <title>Vélibe. Location de vélos</title>
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-	<link href="https://fonts.googleapis.com/css?family=Belgrano" rel="stylesheet"> 
-    <link rel="stylesheet" href="style.css">
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+	<meta charset="utf-8">
+	<title>Vélibe. Location de vélos</title>
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Belgrano" rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
 </head>
 
-<body>
-    <p id="mob">
-        <canvas id="mycanvas">
+<body onload="Signature.init()">
+	<p id="mob">
+		<canvas id="mycanvas">
       Canvas element not supported.
     </canvas> Signez ci-dessus pour valider la réservation
-        <a href=#footer><button onclick='minuteur.finReserv();minuteur.decompte();' class='louer'>Cliquez ici</button ></a>
-    </p>
-    <div id="home">
-        <div class="slideshow">
-            <div class="mySlides">
-                <div class="slide-image">
-                    <div class="texte1"><span class="espacement2">Bienvenue sur l'application vélib<br />Cliquez sur un regroupement de marqueurs.  <br /></span><br /></div>
-                </div>
-            </div>
-            <div class="mySlides">
-                <div class="slide-image2">
-                    <div class="texte1"><span class="espacement2"> Sélectionnez un vélib et cliquez dessus.<br /></div>
+		<a href=#footer><button onclick='minuteur.finReserv();minuteur.decompte();' class='louer'>Cliquez ici</button ></a>
+	</p>
+	<div id="home">
+		<div class="slideshow">
+			<div class="mySlides">
+				<div class="slide-image">
+					<div class="texte1"><span class="espacement2">Bienvenue sur l'application vélib<br />Cliquez sur un regroupement de marqueurs.  <br /></span><br /></div>
+				</div>
+			</div>
+			<div class="mySlides">
+				<div class="slide-image2">
+					<div class="texte1"><span class="espacement2"> Sélectionnez un vélib et cliquez dessus.<br /></div>
                 </div>
             </div>
             <div class="mySlides">
                 <div class="slide-image3">
                     <div class="texte1"><span class="espacement2"> Vous verrez une petite fenêtre vous indiquant l'adresse<br /> et le nombre de vélibs disponibles  </span><br /></span><br /></div>
-                </div>
-            </div>
-            <div class="mySlides">
-                <div class="slide-image4">
-                    <div class="texte1"><span class="espacement2">Cliquez sur le bouton "réservez", une fenêtre de signature apparaitra.  <br /></span><br />Signer et valider.</div>
-                </div>
-            </div>
-            <div class="mySlides">
-                <div class="slide-image5">
-                    <div class="texte1"><span class="espacement2"> Vous verrez en dessous de la carte le vélo réservé et le nombre de minutes restant. <br /></span><br /></div>
-                </div>
-            </div>
-            <div class="all"><span class="expand"></span></div>
-            <!--Barre de chargement-->
-        </div>
-        <div class="bouton12">
-            <a class="w3-btn-floating" onclick="Slidefor.plusDivs(-1)">&#10094;</a>
-            <a class="w3-btn-floating2" onclick="Slidefor.plusDivs(1)">&#10095;</a>
-        </div>
-    </div>
+				</div>
+			</div>
+			<div class="mySlides">
+				<div class="slide-image4">
+					<div class="texte1"><span class="espacement2">Cliquez sur le bouton "réservez", une fenêtre de signature apparaitra.  <br /></span><br />Signer et valider.</div>
+				</div>
+			</div>
+			<div class="mySlides">
+				<div class="slide-image5">
+					<div class="texte1"><span class="espacement2"> Vous verrez en dessous de la carte le vélo réservé et le nombre de minutes restant. <br /></span><br /></div>
+				</div>
+			</div>
+			<div class="all"><span class="expand"></span></div>
+			<!--Barre de chargement-->
+		</div>
+		<div class="bouton12">
+			<a class="w3-btn-floating" onclick="Slidefor.plusDivs(-1)">&#10094;</a>
+			<a class="w3-btn-floating2" onclick="Slidefor.plusDivs(1)">&#10095;</a>
+		</div>
+	</div>
 
-    <h1>Réservez un vélo depuis la carte</h1>
-    <div id="reservation"></div>
-    <div id="map"></div>
-    <div id="timer"></div><br />
-    <div id="footer"></div>
+	<h1>Réservez un vélo depuis la carte</h1>
 
-    <script src="../js/ajax.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="../js/signatureMobile.js"></script>
-    <script src="../js/slide.js"></script>
-    <script src="../js/signature.js"></script>
-    <script src="../js/coordonnees.js"></script>
-    <script src="../js/minuteur.js"></script>
-    <script src="../js/markerperso.js"></script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBGmV-zl2q_1T01QCjt0C1X2ZYve-LEqsA&callback=initMap"></script>
+	<div id="reservation">
+	</div>
+	<div id="reservation1">Signer ci-dessous pour finaliser la résérvation<br><br><a href="#footer"><button onclick="minuteur.finReserv();minuteur.decompte();" class="louer">Cliquez ici</button></a>
+		<div id=sketchpadapp>
+			<div class=rightside>
+				<canvas id=sketchpad height=200 width=250>
+            </canvas>
+			</div>
+		</div>
+	</div>
+	<div id="map"></div>
+	<div id="timer"></div><br />
+	<div id="footer"></div>
+	<script src="../js/ajax.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="../js/slide.js"></script>
+	<script src="../js/signature.js"></script>
+	<script src="../js/signatureMobile.js"></script>
+	<script src="../js/coordonnees.js"></script>
+	<script src="../js/minuteur.js"></script>
+	<script src="../js/markerperso.js"></script>
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBGmV-zl2q_1T01QCjt0C1X2ZYve-LEqsA&callback=initMap"></script>
 
 </body>
 

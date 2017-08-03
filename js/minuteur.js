@@ -8,7 +8,7 @@ function Reserver() {
 		$("#reservation").fadeIn().html("La réservation a été effectuée");
 
 		// remplacement de l'encien nom de station par le nouveau
-		localStorage.newNameStation = sessionStorage.nameStation;
+		localStorage.newNameStation = localStorage.nameStation;
 		window.location.reload();
 		localStorage.min = 19;
 		localStorage.sec = 60;
@@ -34,7 +34,7 @@ function Reserver() {
 
 		}
 
-		if (localStorage.min === 0 && localStorage.sec === 0) {
+		if (localStorage.min < 0) {
 
 			clearTimeout(interv);
 			$("#reservation").fadeIn().html("La réservation à éxpiré");

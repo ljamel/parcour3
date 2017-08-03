@@ -48,7 +48,7 @@
  						}
  						// extraction des données de la station
  						var station = object.address;
- 						sessionStorage.nameStation = object.name; // Appel la fonction affiche le nom de la station  
+ 						localStorage.nameStation = object.name; // Appel la fonction affiche le nom de la station  
  						var stre = object.status;
  						var veloDispo = object.available_bikes;
  						var placeDispo = object.available_bike_stands;
@@ -73,7 +73,7 @@
  						}
 
  						// affiche une fenête d'info sur la station
- 						$("#reservation").fadeIn().html("Détail de la station:<br />" + "<br /><strong>Nom de la station</strong><br />" + sessionStorage.nameStation + "<br /><br /><strong>adresse de la station</strong><br />" + station + "<br /><br /><strong>La station est</strong> " + statusFr + "<br /><br /><strong>Nombre de vélos disponible</strong> " + veloDispo + "<br /><strong>nombre de places disponible </strong>" + placeDispo + "<br /><p></p>" + res + "<br />");
+ 						$("#reservation").fadeIn().html("Détail de la station:<br />" + "<br /><strong>Nom de la station</strong><br />" + localStorage.nameStation + "<br /><br /><strong>adresse de la station</strong><br />" + station + "<br /><br /><strong>La station est</strong> " + statusFr + "<br /><br /><strong>Nombre de vélos disponible</strong> " + veloDispo + "<br /><strong>nombre de places disponible </strong>" + placeDispo + "<br /><p></p>" + res + "<br />");
 
  						var contentString = '<div id="content">' + '<strong>La station est </strong>' + statusFr +
  							'</div>';
