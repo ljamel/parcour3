@@ -61,11 +61,11 @@
  							if (window.matchMedia("(max-width: 700px)").matches) {
  								// Mobile
 
- 								res = "<a href=#mob><button onclick='final.reservation();' class='louer'>Résérver</button></a>";
+ 								res = "<a href=#mob><button onclick='Signature.reservation();' class='louer'>Résérver</button></a>";
  							} else {
  								// ordinateur
 
- 								res = "<a href=#footer><button onclick='final.reservation()' class='louer'>Résérver</button></a>";
+ 								res = "<a href=#footer><button onclick='Signature.reservation()' class='louer'>Résérver</button></a>";
  							}
  						}
  						if (veloDispo <= 0 || object.status === "CLOSED") {
