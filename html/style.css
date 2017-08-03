@@ -214,6 +214,7 @@ button {
 	padding: 5px;
 	border-radius: 7px;
 	border: 1px solid #808080;
+	display: none;
 }
 
 
@@ -249,8 +250,7 @@ button {
 	width: 265px;
 	border: 2px solid #888;
 	border-radius: 4px;
-	position: relative;
-	/* Necessary for correct mouse co-ords in Firefox */
+	background-color: white;
 }
 
 #clearbutton {
