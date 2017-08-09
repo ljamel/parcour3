@@ -1,17 +1,115 @@
-// Draws a dot at a specific position on the supplied canvas name
-// Parameters are: A canvas context, the x position, the y position, the size of the dot
 Signature = {
-	mouseDown: 0,
+	// Mes objets
+	pixels: [],
+	xyLast: {},
+	xyAddLast: {},
+	calculate: false,
 
-	drawDot: function (ctx, x, y, size) {
-		// Select a fill style
-		ctx.fillStyle = "rgba(0, 0, 255 )";
+	// Méthode evenement qui arrete la signature au relachement du bouton
+	remove_event_listeners: function () {
 
-		// Draw a filled circle
-		ctx.beginPath();
-		ctx.arc(x, y, 2, 0, Math.PI * 2, true);
-		ctx.closePath();
-		ctx.fill();
+		document.getElementById("newSignature").removeEventListener('mousemove', Signature.on_mousemove, false);
+		document.getElementById("newSignature").removeEventListener('mouseup', Signature.on_mouseup, false);
+		document.getElementById("newSignature").removeEventListener('touchmove', Signature.on_mousemove, false);
+		document.getElementById("newSignature").removeEventListener('touchend', Signature.on_mouseup, false);
+
+		document.body.removeEventListener('mouseup', Signature.on_mouseup, false);
+		document.body.removeEventListener('touchend', Signature.on_mouseup, false);
+	},
+
+	get_coords: function (e) {
+		var x, y;
+
+		if (e.changedTouches && e.changedTouches[0]) {
+			var offsety = document.getElementById("newSignature").offsetTop || 0;
+			var offsetx = document.getElementById("newSignature").offsetLeft || 0;
+
+			x = e.changedTouches[0].pageX - offsetx;
+			y = e.changedTouches[0].pageY - offsety;
+		} else if (e.layerX || 0 == e.layerX) {
+			x = e.layerX;
+			y = e.layerY;
+		} else if (e.offsetX || 0 == e.offsetX) {
+			x = e.offsetX;
+			y = e.offsetY;
+		}
+
+
+		// Pour la compatibilité chrome
+		if (navigator.vendor === "Google Inc.") {
+			y = y + 130;
+			x = x + 230;
+			if (document.body.clientWidth > 1600) {
+				y = y - 130;
+				x = x - 270;
+				console.log(document.body.clientWidth);
+			}
+		}
+
+
+		return {
+			x: x,
+			y: y
+		};
+	},
+
+	// Evenement qui actionne le stylo
+	on_mousedown: function (e) {
+
+		// annule l'evenement précédent
+		e.preventDefault();
+		e.stopPropagation();
+
+		document.getElementById("newSignature").addEventListener('mouseup', Signature.on_mouseup, false);
+		document.getElementById("newSignature").addEventListener('mousemove', Signature.on_mousemove, false);
+		document.getElementById("newSignature").addEventListener('touchend', Signature.on_mouseup, false);
+		document.getElementById("newSignature").addEventListener('touchmove', Signature.on_mousemove, false);
+		document.body.addEventListener('mouseup', Signature.on_mouseup, false);
+		document.body.addEventListener('touchend', Signature.on_mouseup, false);
+
+		var xy = Signature.get_coords(e);
+		document.getElementById("newSignature").getContext("2d").beginPath();
+		Signature.pixels.push('moveStart');
+		document.getElementById("newSignature").getContext("2d").moveTo(xy.x, xy.y);
+		Signature.pixels.push(xy.x, xy.y);
+		Signature.xyLast = xy;
+	},
+
+	on_mousemove: function (e, finish) {
+
+
+		e.preventDefault();
+		e.stopPropagation();
+
+		var xy = Signature.get_coords(e);
+		var xyAdd = {
+			x: (Signature.xyLast.x + xy.x) / 2,
+			y: (Signature.xyLast.y + xy.y) / 2
+		};
+
+		if (Signature.calculate) {
+			var xLast = (Signature.xyAddLast.x + Signature.xyLast.x + xyAdd.x) / 3;
+			var yLast = (Signature.xyAddLast.y + Signature.xyLast.y + xyAdd.y) / 3;
+			Signature.pixels.push(xLast, yLast);
+		} else {
+			Signature.calculate = true;
+		}
+
+		document.getElementById("newSignature").getContext("2d").quadraticCurveTo(Signature.xyLast.x, Signature.xyLast.y, xyAdd.x, xyAdd.y);
+		Signature.pixels.push(xyAdd.x, xyAdd.y);
+		document.getElementById("newSignature").getContext("2d").stroke();
+		document.getElementById("newSignature").getContext("2d").beginPath();
+		document.getElementById("newSignature").getContext("2d").moveTo(xyAdd.x, xyAdd.y);
+		Signature.xyAddLast = xyAdd;
+		Signature.xyLast = xy;
+
+	},
+
+	on_mouseup: function (e) {
+		Signature.remove_event_listeners();
+		document.getElementById("newSignature").getContext("2d").stroke();
+		Signature.pixels.push('e');
+		Signature.calculate = false;
 	},
 
 	// Fenêtre de signature
@@ -21,8 +119,7 @@ Signature = {
 			document.getElementById('mycanvas').style.display = "block";
 			document.getElementById('mob').style.display = "block";
 		} else {
-			// ordinateur
-			// affiche une fenête pour signé
+			// ordinateur "efface lancienne fenêtre pour faire apparaitre la fenêtre de signature"
 			$("#reservation").fadeIn().html("");
 
 			document.getElementById('reservation1').style.display = "block";
@@ -30,108 +127,13 @@ Signature = {
 		}
 
 	},
-
-	// Clear the canvas context using the canvas width and height
-	clearCanvas: function (canvas, ctx) {
-		ctx.clearRect(0, 0, document.getElementById('sketchpad').width, document.getElementById('sketchpad').height);
-	},
-
-	// Keep track of the mouse button being pressed and draw a dot at current location
-	sketchpad_mouseDown: function () {
-		Signature.mouseDown = 1;
-		Signature.drawDot(ctx, mouseX, mouseY, 4);
-	},
-
-	// Keep track of the mouse button being released
-	sketchpad_mouseUp: function () {
-		Signature.mouseDown = 0;
-	},
-
-	// Keep track of the mouse position and draw a dot if mouse button is currently pressed
-	sketchpad_mouseMove: function (e) {
-		// Update the mouse co-ordinates when moved
-		Signature.getMousePos(e);
-
-		// Draw a dot if the mouse button is currently being pressed
-		if (Signature.mouseDown == 1) {
-			Signature.drawDot(ctx, mouseX, mouseY, 12);
-		}
-	},
-
-	// Get the current mouse position relative to the top-left of the canvas
-	getMousePos: function (e) {
-		if (!e)
-			var e = event;
-
-		if (e.offsetX) {
-			mouseX = e.offsetX;
-			mouseY = e.offsetY;
-		} else if (e.layerX) {
-			mouseX = e.layerX;
-			mouseY = e.layerY;
-		}
-	},
-
-	// Draw something when a touch start is detected
-	sketchpad_touchStart: function () {
-		// Update the touch co-ordinates
-		getTouchPos();
-
-		drawDot(ctx, touchX, touchY, 12);
-
-		// Prevents an additional mousedown event being triggered
-		event.preventDefault();
-	},
-
-	// Draw something and prevent the default scrolling when touch movement is detected
-	sketchpad_touchMove: function (e) {
-		// Update the touch co-ordinates
-		getTouchPos(e);
-
-		// During a touchmove event, unlike a mousemove event, we don't need to check if the touch is engaged, since there will always be contact with the screen by definition.
-		drawDot(ctx, touchX, touchY, 12);
-
-		// Prevent a scrolling action as a result of this touchmove triggering.
-		event.preventDefault();
-	},
-
-	// Get the touch position relative to the top-left of the canvas
-	// When we get the raw values of pageX and pageY below, they take into account the scrolling on the page
-	// but not the position relative to our target div. We'll adjust them using "target.offsetLeft" and
-	// "target.offsetTop" to get the correct values in relation to the top left of the canvas.
-	getTouchPos: function (e) {
-		if (!e)
-			var e = event;
-
-		if (e.touches) {
-			if (e.touches.length == 1) { // Only deal with one finger
-				var touch = e.touches[0]; // Get the information for finger #1
-				touchX = touch.pageX - touch.target.offsetLeft;
-				touchY = touch.pageY - touch.target.offsetTop;
-			}
-		}
-	},
-
-	// Set-up the canvas and add our event handlers after the page has loaded
-	init: function () {
-		// Get the specific canvas element from the HTML document
-		canvas = document.getElementById('sketchpad');
+}
+document.getElementById("newSignature").addEventListener('touchstart', Signature.on_mousedown, false);
+document.getElementById("newSignature").addEventListener('mousedown', Signature.on_mousedown, false);
 
 
-		ctx = canvas.getContext('2d');
-
-
-		// Check that we have a valid context to draw on/with before adding event handlers
-		if (ctx) {
-			// React to mouse events on the canvas, and mouseup on the entire document
-			document.getElementById('sketchpad').addEventListener('mousedown', Signature.sketchpad_mouseDown, false);
-			document.getElementById('sketchpad').addEventListener('mousemove', Signature.sketchpad_mouseMove, false);
-			window.addEventListener('mouseup', Signature.sketchpad_mouseUp, false);
-
-			// React to touch events on the canvas
-			document.getElementById('sketchpad').addEventListener('touchstart', Signature.sketchpad_touchStart, false);
-			document.getElementById('sketchpad').addEventListener('touchmove', Signature.sketchpad_touchMove, false);
-		}
-	}
-
-};
+document.getElementById("newSignature").getContext("2d").fillStyle = "#fff";
+document.getElementById("newSignature").getContext("2d").strokeStyle = "#444";
+document.getElementById("newSignature").getContext("2d").lineWidth = 1.5;
+document.getElementById("newSignature").getContext("2d").lineCap = "round";
+document.getElementById("newSignature").getContext("2d").fillRect(0, 0, document.getElementById("newSignature").width, document.getElementById("newSignature").height);

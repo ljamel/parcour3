@@ -9,8 +9,8 @@ function Reserver() {
 		// remplacement de l'encien nom de station par le nouveau
 		sessionStorage.newNameStation = sessionStorage.nameStation;
 		window.location.reload();
-		sessionStorage.min = 19;
-		sessionStorage.sec = 60;
+		localStorage.min = 19;
+		localStorage.sec = 60;
 	};
 
 
@@ -18,13 +18,13 @@ function Reserver() {
 	this.decompte = function () {
 
 		if (this.minutes >= 0 && this.sec >= 0) {
-			sessionStorage.sec--;
-			if (sessionStorage.sec < 1) {
-				sessionStorage.sec = 59;
-				sessionStorage.min--;
+			localStorage.sec--;
+			if (localStorage.sec < 1) {
+				localStorage.sec = 59;
+				localStorage.min--;
 			}
-			if (sessionStorage.min >= 0) {
-				document.getElementById('timer').innerHTML = "1 vélo résérver à la station " + sessionStorage.newNameStation + " pour <strong> " + sessionStorage.min + " Minutes " + sessionStorage.sec + " Secondes</strong> " + "<i class='fa fa-clock-o' aria-hidden='true'></i>";
+			if (localStorage.min >= 0) {
+				document.getElementById('timer').innerHTML = "1 vélo résérver à la station " + sessionStorage.newNameStation + " pour <strong> " + localStorage.min + " Minutes " + localStorage.sec + " Secondes</strong> " + "<i class='fa fa-clock-o' aria-hidden='true'></i>";
 				document.getElementById('timer').style.display = "block";
 
 				var interv = setTimeout(function () {
@@ -33,7 +33,7 @@ function Reserver() {
 			}
 		}
 
-		if (sessionStorage.min < 0) {
+		if (localStorage.min < 0) {
 
 			clearTimeout(interv);
 			$("#reservation").fadeIn().html("La réservation à éxpiré");

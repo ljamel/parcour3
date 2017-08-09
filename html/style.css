@@ -173,6 +173,13 @@ button {
 	background-color: #ffffdd;
 }
 
+#newSignature { 
+	position: relative; /* pour que le curseur reste aligner avec la sourie */
+	border: 1px solid #c4caac; 
+	border-radius:7px;
+	margin-top:10px;
+}
+
 #mob {
 	display: none;
 	margin-top: auto;
@@ -193,7 +200,7 @@ button {
 	border-radius: 7px;
 	background-color: #e6fffb;
 	float: right;
-	width: 270px;
+	width: 300px;
 	padding: 9px;
 	display: none;
 }
@@ -201,10 +208,6 @@ button {
 .louer {
 	background-color: dodgerblue;
 	padding: 5px;
-}
-
-#stylo {
-	color: white;
 }
 
 #timer {
@@ -230,6 +233,7 @@ button {
 	user-select: none;
 }
 
+
 .leftside {
 	width: 220px;
 	height: 285px;
@@ -239,10 +243,6 @@ button {
 	margin-left: auto;
 }
 
-.rightside {
-	float: rigth;
-	margin-left: 10px;
-}
 
 #sketchpad {
 	float: right;

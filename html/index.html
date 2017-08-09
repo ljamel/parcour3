@@ -10,7 +10,7 @@
 	<link rel="stylesheet" href="style.css">
 </head>
 
-<body onload="Signature.init()">
+<body>
 	<p id="mob">
 		<canvas id="mycanvas">
       Canvas element not supported.
@@ -57,13 +57,14 @@
 
 	<div id="reservation">
 	</div>
-	<div id="reservation1">Signer ci-dessous pour finaliser la résérvation<br><br><a href="#footer"><button onclick="minuteur.finReserv();minuteur.decompte();" class="louer">Cliquez ici</button></a>
+	<div id="reservation1">Signer ci-dessous pour finaliser la résérvation<br />
 		<div id=sketchpadapp>
 			<div class=rightside>
-				<canvas id=sketchpad height=200 width=250>
-            </canvas>
+				<canvas id="newSignature"></canvas>
 			</div>
 		</div>
+		<br />
+		<a href="#footer"><button onclick="minuteur.finReserv();minuteur.decompte();" class="louer">Cliquez ici</button></a>
 	</div>
 	<div id="map"></div>
 	<div id="timer"></div><br />
