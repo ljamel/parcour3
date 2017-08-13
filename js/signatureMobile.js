@@ -1,5 +1,7 @@
 var Mobs = {
+	
 	lastPt: [],
+	
 	draw: function (e) {
 		e.preventDefault();
 		//Iterate over all touches

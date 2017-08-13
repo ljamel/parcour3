@@ -17,6 +17,7 @@ Signature = {
 		document.body.removeEventListener('touchend', Signature.on_mouseup, false);
 	},
 
+	// calcule la position du curseur
 	get_coords: function (e) {
 		var x, y;
 
@@ -35,15 +36,11 @@ Signature = {
 		}
 
 
-		// Pour la compatibilité chrome
+		// Pour la compatibilité chrome-------------------------
 		if (navigator.vendor === "Google Inc.") {
-			y = y + 130;
-			x = x + 230;
-			if (document.body.clientWidth > 1600) {
-				y = y - 130;
-				x = x - 270;
-				console.log(document.body.clientWidth);
-			}
+
+
+			
 		}
 
 

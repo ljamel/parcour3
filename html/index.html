@@ -2,7 +2,6 @@
 <html>
 
 <head>
-	<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
 	<meta charset="utf-8">
 	<title>Vélibe. Location de vélos</title>
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
@@ -15,7 +14,7 @@
 		<canvas id="mycanvas">
       Canvas element not supported.
     </canvas> Signez ci-dessus pour valider la réservation
-		<a href=#footer><button onclick='minuteur.finReserv();minuteur.decompte();' class='louer'>Cliquez ici</button ></a>
+		<button onclick='minuteur.finReserv();minuteur.decompte();' class='louer'>Cliquez ici</button >
 	</p>
 	<div id="home">
 		<div class="slideshow">
@@ -26,12 +25,12 @@
 			</div>
 			<div class="mySlides">
 				<div class="slide-image2">
-					<div class="texte1"><span class="espacement2"> Sélectionnez un vélib et cliquez dessus.<br /></div>
+					<div class="texte1"><span class="espacement2"> Sélectionnez un vélib et cliquez dessus.<br /></span></div>
                 </div>
             </div>
             <div class="mySlides">
                 <div class="slide-image3">
-                    <div class="texte1"><span class="espacement2"> Vous verrez une petite fenêtre vous indiquant l'adresse<br /> et le nombre de vélibs disponibles  </span><br /></span><br /></div>
+                    <div class="texte1"><span class="espacement2"> Vous verrez une petite fenêtre vous indiquant l'adresse<br /> et le nombre de vélibs disponibles  </span><br /></div>
 				</div>
 			</div>
 			<div class="mySlides">
@@ -64,7 +63,7 @@
 			</div>
 		</div>
 		<br />
-		<a href="#footer"><button onclick="minuteur.finReserv();minuteur.decompte();" class="louer">Cliquez ici</button></a>
+		<button onclick="minuteur.finReserv();minuteur.decompte();" class="louer">Cliquez ici</button>
 	</div>
 	<div id="map"></div>
 	<div id="timer"></div><br />
