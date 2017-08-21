@@ -59,7 +59,7 @@ body {
 }
 
 .espacement2 {
-	font-size: 34px;
+	font-size: 44px;
 	background-color: cornflowerblue;
 }
 
@@ -138,10 +138,46 @@ body {
 	bottom: 120px;
 }
 
-button {
+#louer {
+	background-color: dodgerblue;
+	padding: 5px;
 	padding: 6px 0 6px 0;
 	font: bold 13px Arial;
 	background: #478bf9;
+	color: #fff;
+	border-radius: 7px;
+	width: 100px;
+	border: none;
+}
+
+#louer2 {
+	display:none;
+	background-color: dodgerblue;
+	padding: 5px;
+	padding: 6px 0 6px 0;
+	font: bold 13px Arial;
+	background: #478bf9;
+	color: #fff;
+	border-radius: 7px;
+	width: 100px;
+	border: none;
+}
+
+#valideSignature {
+	padding: 6px 0 6px 0;
+	font: bold 13px Arial;
+	background: #478bf9;
+	color: #fff;
+	border-radius: 7px;
+	width: 100px;
+	border: none;
+}
+
+
+#nonSignez {
+	padding: 6px 0 6px 0;
+	font: bold 13px Arial;
+	background: #a9c8fa;
 	color: #fff;
 	border-radius: 7px;
 	width: 100px;
@@ -205,10 +241,7 @@ button {
 	display: none;
 }
 
-.louer {
-	background-color: dodgerblue;
-	padding: 5px;
-}
+
 
 #timer {
 	background-color: #e6fffb;
@@ -261,8 +294,32 @@ button {
 	border: 1px solid #888;
 }
 
-@media screen and (max-width: 640px) {
-	.espacement2 {
-		font-size: 19px;
+@media screen and (max-width: 760px) {
+
+	.w3-btn-floating,
+	.w3-btn-floating-large {
+		text-align: center;
+		color: #fff;
+		background-color: rgba(0, 0, 0, 0.4);
+		padding: 2;
+		border-radius: 0 40px 40px 0;
+		cursor: pointer;
+		font-size: 41px;
+	}
+
+	.w3-btn-floating,
+	.w3-btn-floating2 {
+		width: 50px;
+	}
+
+	.w3-btn-floating2,
+	.w3-btn-floating-large {
+		text-align: center;
+		color: #fff;
+		background-color: rgba(0, 0, 0, 0.4);
+		padding: 2;
+		border-radius: 40px 0 0 40px;
+		cursor: pointer;
+		font-size: 41px;
 	}
 }

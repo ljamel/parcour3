@@ -36,13 +36,6 @@ Signature = {
 		}
 
 
-		// Pour la compatibilité chrome-------------------------
-		if (navigator.vendor === "Google Inc.") {
-
-
-			
-		}
-
 
 		return {
 			x: x,
@@ -70,6 +63,10 @@ Signature = {
 		document.getElementById("newSignature").getContext("2d").moveTo(xy.x, xy.y);
 		Signature.pixels.push(xy.x, xy.y);
 		Signature.xyLast = xy;
+		
+		// Fait apparaitre le bouton signature après avoir signé
+		document.getElementById('louer2').style.display = "block";
+		document.getElementById('nonSignez').style.display = "none";
 	},
 
 	on_mousemove: function (e, finish) {
