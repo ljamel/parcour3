@@ -151,7 +151,7 @@ body {
 }
 
 #louer2 {
-	display:none;
+	display: none;
 	background-color: dodgerblue;
 	padding: 5px;
 	padding: 6px 0 6px 0;
@@ -172,7 +172,6 @@ body {
 	width: 100px;
 	border: none;
 }
-
 
 #nonSignez {
 	padding: 6px 0 6px 0;
@@ -209,11 +208,12 @@ body {
 	background-color: #ffffdd;
 }
 
-#newSignature { 
-	position: relative; /* pour que le curseur reste aligner avec la sourie */
-	border: 1px solid #c4caac; 
-	border-radius:7px;
-	margin-top:10px;
+#newSignature {
+	position: relative;
+	/* pour que le curseur reste aligner avec la sourie */
+	border: 1px solid #c4caac;
+	border-radius: 7px;
+	margin-top: 10px;
 }
 
 #mob {
@@ -241,8 +241,6 @@ body {
 	display: none;
 }
 
-
-
 #timer {
 	background-color: #e6fffb;
 	font-size: 25px;
@@ -266,7 +264,6 @@ body {
 	user-select: none;
 }
 
-
 .leftside {
 	width: 220px;
 	height: 285px;
@@ -275,7 +272,6 @@ body {
 	border-radius: 4px;
 	margin-left: auto;
 }
-
 
 #sketchpad {
 	float: right;
@@ -295,7 +291,6 @@ body {
 }
 
 @media screen and (max-width: 760px) {
-
 	.w3-btn-floating,
 	.w3-btn-floating-large {
 		text-align: center;
@@ -306,12 +301,10 @@ body {
 		cursor: pointer;
 		font-size: 41px;
 	}
-
 	.w3-btn-floating,
 	.w3-btn-floating2 {
 		width: 50px;
 	}
-
 	.w3-btn-floating2,
 	.w3-btn-floating-large {
 		text-align: center;
@@ -321,5 +314,9 @@ body {
 		border-radius: 40px 0 0 40px;
 		cursor: pointer;
 		font-size: 41px;
+	}
+	.espacement2 {
+		font-size: 34px;
+		background-color: cornflowerblue;
 	}
 }

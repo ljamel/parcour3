@@ -63,7 +63,7 @@ Signature = {
 		document.getElementById("newSignature").getContext("2d").moveTo(xy.x, xy.y);
 		Signature.pixels.push(xy.x, xy.y);
 		Signature.xyLast = xy;
-		
+
 		// Fait apparaitre le bouton signature après avoir signé
 		document.getElementById('louer2').style.display = "block";
 		document.getElementById('nonSignez').style.display = "none";
@@ -108,17 +108,13 @@ Signature = {
 
 	// Fenêtre de signature
 	reservation: function () {
-		if (window.matchMedia("(max-width: 700px)").matches) {
-			// Mobile
-			document.getElementById('mycanvas').style.display = "block";
-			document.getElementById('mob').style.display = "block";
-		} else {
-			// ordinateur "efface lancienne fenêtre pour faire apparaitre la fenêtre de signature"
-			$("#reservation").fadeIn().html("");
 
-			document.getElementById('reservation1').style.display = "block";
-			document.getElementById('reservation').style.display = "none";
-		}
+		// ordinateur "efface lancienne fenêtre pour faire apparaitre la fenêtre de signature"
+		$("#reservation").fadeIn().html("");
+
+		document.getElementById('reservation1').style.display = "block";
+		document.getElementById('reservation').style.display = "none";
+
 
 	},
 }
